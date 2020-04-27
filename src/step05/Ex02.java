@@ -17,6 +17,36 @@ public class Ex02 {
 	public static void main(String[] args) {
 		
 		int[] score = {10, 50, 30, 40, 80, 7};
+		int max = searchMax(score);
 		
+		while(true) {
+			for(int i = 0; i < score.length; i++) {
+				System.out.print(score[i] + " ");
+			}
+			System.out.println("");
+			if(score[0] == max) break;
+			
+		}
+		
+	}
+	
+	public static int searchMax(int[] arr) {
+		int max = arr[0];
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		return max;
+	}
+	
+	public static int[] correctA(int[] arr) {
+		int[] c = new int[arr.length];
+		for(int i = 0; i < arr.length-1; i++) {
+			for(int j = i; j < arr.length; j++) {
+				
+			}
+		}
+		return c;
 	}
 }
