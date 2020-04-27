@@ -16,28 +16,31 @@ public class Ex01 {
 		
 		System.out.println("구구단 게임");
 		
-		Random rnd = new Random();
+		Random rnd = new Random(); //랜덤 객체 생성
 		
-		int score = 0;
+		int score = 0; //총 성적을 담는 변수
 		
+		//랜덤한 숫자 2개 배열에 저장
 		int[] r = new int[2];
 		for(int i = 0; i < 2; i++) {
-			r[i] = rnd.nextInt()
+			r[i] = rnd.nextInt(9) + 1;
 		}
 		
-//		
-//		for(int i = 0; i < 2; i++) {
-//			int r = rnd.nextInt(9)+1;
-//			for(int j = 0; j < 5; j++) {
-//				int m = rnd.nextInt(9)+1;
-//				System.out.print(r + " X " + m + " = " );
-//				int answer = in.nextInt();
-//				if(answer == r*m) {
-//					score += 20;
-//				}
-//			}
-//		}
+		//r배열에서 0-1중 랜덤한 숫자 m번째의 값과 
+		//0-9사이 랜덤값 n을 곱한 값이랑 일치여부를 따져서 점수 매기기
+		for(int i = 0; i < 5; i ++) {
+			int m = rnd.nextInt(2);
+			int n = rnd.nextInt(9) + 1;
+			System.out.print(r[m] + " X " + n + " = ");
+			int answer = in.nextInt();
+			if(answer == r[m] * n) {
+				score += 20;
+			}
+		}
 		
+		//총 점 출력
 		System.out.println("성적 : " + score + "점");
+		
+		in.close(); //스캐너 반환
 	}
 }

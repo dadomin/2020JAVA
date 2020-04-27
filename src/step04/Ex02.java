@@ -31,22 +31,45 @@ public class Ex02 {
 		Scanner scan = new Scanner(System.in);
 		
 		int[] seat = new int[7];
+		int price = 0;
 		
 		boolean run = true;
 		while(run) {
-			System.out.println("=메가 영화관=");
+			System.out.println("\n=메가 영화관=");
 			System.out.println("1.좌석예매");
 			System.out.println("2.종료");
 			
 			System.out.print("메뉴 선택 : ");
 			int sel = scan.nextInt();
 			
-			if(sel == 1) {}
-			else if(sel == 2) {
+			if(sel == 1) {
+				System.out.print("seat = ");
+				for(int i = 0; i < seat.length; i++) {
+					System.out.print(seat[i] + " ");
+				}
+				System.out.println("");
+				System.out.print("\n좌석선택 : ");
+				int s = scan.nextInt();
+				if(s >= 0 && s < 7) {
+					if(seat[s] == 1) {
+						System.out.println("이미 선택된 좌석입니다. 좌석 예매를 다시 시도해주세요.");
+						continue;
+					}
+					seat[s] = 1;
+					price += 12000;
+					System.out.print("seat = ");
+					for(int i = 0; i < seat.length; i++) {
+						System.out.print(seat[i] + " ");
+					}
+					System.out.println("");
+				}
+			} else if(sel == 2) {
 				run = false;
 			}
+			
 		}
-		
+		System.out.println("\n----------------------");
+		System.out.println("매출액 : " + price +"원");
 		scan.close();
 	}
 }

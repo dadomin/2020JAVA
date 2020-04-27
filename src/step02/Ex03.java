@@ -167,7 +167,7 @@ public class Ex03 {
 			
 		}
 		
-		in.close();
+		in.close(); //스캐너 반환
 		
 	}
 }

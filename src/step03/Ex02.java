@@ -12,11 +12,15 @@ import java.util.Scanner;
 public class Ex02 {
 	public static void main(String[] args) {
 
-		Scanner scan = new Scanner(System.in);
+		Scanner in = new Scanner(System.in);
 		
 		int price1 = 3400;
 		int price2 = 4100;
 		int price3 = 1700;
+		
+		int cnt1 = 0;
+		int cnt2 = 0;
+		int cnt3 = 0;
 		
 		while(true) {
 			
@@ -26,16 +30,19 @@ public class Ex02 {
 			System.out.println("[3]감자튀김 : " + price3 + "원");
 			System.out.println("[0]계산하기");
 			System.out.print("메뉴를 선택하세요 : ");
-			int sel = scan.nextInt();
+			int sel = in.nextInt();
 			
 			if(sel == 1) {
 				System.out.println("[메세지]싸이버거 1개 주문하였습니다.");
+				cnt1++;
 			}
 			else if(sel == 2) {
 				System.out.println("[메세지]포테이토버거 1개 주문하였습니다.");
+				cnt2++;
 			}
 			else if(sel == 3) {
 				System.out.println("[메세지]감자튀김 1개 주문하였습니다.");
+				cnt3++;
 			}
 			else if(sel == 0) {
 				break;
@@ -43,6 +50,20 @@ public class Ex02 {
 			
 		}
 		
-		scan.close();
+		int total = cnt1 * price1 + cnt2 * price2 + cnt3 * price3;
+		System.out.println("======= 영 수 증 =======");
+		if(cnt1 != 0) {
+			System.out.println("싸이버거 : " + cnt1 + " 개");
+		}
+		if(cnt2 != 0) {
+			System.out.println("포테이토버거 : " + cnt2 + " 개");
+		}
+		if(cnt3 != 0) {
+			System.out.println("감자튀김 : " + cnt3 + " 개");
+		}
+		System.out.println(" 총 금액 : " + total + " 원");
+		System.out.println("=====================");
+		
+		in.close(); //스캐너 반환
 	}
 }

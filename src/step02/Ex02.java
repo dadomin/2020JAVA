@@ -35,5 +35,7 @@ public class Ex02 {
 		}else {
 			System.out.println("놀이기구 이용 불가");
 		}
+		
+		in.close(); //스캐너 반환
 	}
 }

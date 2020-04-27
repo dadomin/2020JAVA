@@ -43,5 +43,7 @@ public class Ex01 {
 		
 		System.out.println("로그인 성공");
 		
+		in.close(); //스캐너 반환
+		
 	}
 }

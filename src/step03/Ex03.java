@@ -1,5 +1,7 @@
 package step03;
 
+import java.util.Random;
+
 /*
  * # 랜덤학생[문제]
  * 1. 10회 반복을 한다.
@@ -20,7 +22,33 @@ package step03;
 public class Ex03 {
 	public static void main(String[] args) {
 
+		Random rnd = new Random();
+		int[] st = new int[10];
 		
+		for(int i = 0; i < 10; i++) {
+			int r = rnd.nextInt(100) + 1;
+			st[i] = r;
+			System.out.print(r + " ");
+		}
+		
+		int total = 0;
+		int pass = 0;
+		int max = 0;
+		for(int i = 0; i < st.length; i++) {
+			total += st[i];
+			
+			if(st[i] >= 60) {
+				pass++;
+			}
+			
+			if(st[i] > max) {
+				max = st[i];
+			}
+		}
+		System.out.println("\n[1] 총점 = " + total +"점");
+		System.out.println("[2] 평균 = " + (double)total / 10 + "점");
+		System.out.println("[3] 합격생수 = " + pass + "명");
+		System.out.println("[4] 1등 = " + max + "점");
 		
 	}
 }

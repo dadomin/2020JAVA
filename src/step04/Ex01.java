@@ -22,27 +22,45 @@ public class Ex01 {
 		int[] student = new int[5];
 		String[] omr = new String[5]; 
 		Random rd = new Random();
+		int score = 0;
 		
+		System.out.print("answer = {");
+		for(int i = 0; i < answer.length; i++) {
+			if(i == answer.length-1) {
+				System.out.print(answer[i] + "}");
+				continue;
+			}
+			System.out.print(answer[i] + ", ");
+		}
 	
+		System.out.print("\nstudnet = {");
 		for(int i = 0; i < student.length; i++) {
 			int rdNum = rd.nextInt(5)+1; 
 			student[i] = rdNum;
+			if(i == student.length-1) {
+				System.out.print(student[i] + "}");
+				continue;
+			}
+			System.out.print(student[i] + ", ");
 		}
 		
-		
+		System.out.print("\n정오표 = {");
 		for(int i = 0; i < student.length; i++) {
 	
 			if(answer[i] == student[i]) {
 				omr[i] = "O";
+				score += 20;
 			}else {
 				omr[i] ="X"; 
 			}
-			System.out.print(omr[i] + " ");
+			if(i == omr.length-1) {
+				System.out.print(omr[i] + "}");
+				continue;
+			}
+			System.out.print(omr[i] + ", ");
 		}
 		
-		
-		
-		
+		System.out.println("\n성적 = " + score + "점");
 		
 	}
 }
