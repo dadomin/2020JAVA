@@ -46,12 +46,34 @@ public class Ex04 {
 			System.out.print("메뉴 선택 : ");
 			int sel = scan.nextInt();
 			
-			if(sel == 1) {}
+			if(sel == 1) {
+				System.out.print("seat = ");
+				for(int i = 0; i < mega.seat.length; i++) {
+					System.out.print(mega.seat[i] + " ");
+				}
+				System.out.println("");
+				System.out.print("\n좌석선택 : ");
+				int s = scan.nextInt();
+				if(s >= 0 && s < 7) {
+					if(mega.seat[s] == 1) {
+						System.out.println("이미 선택된 좌석입니다. 좌석 예매를 다시 시도해주세요.");
+						continue;
+					}
+					mega.seat[s] = 1;
+					mega.money += 12000;
+					System.out.print("seat = ");
+					for(int i = 0; i < mega.seat.length; i++) {
+						System.out.print(mega.seat[i] + " ");
+					}
+					System.out.println("");
+				}
+			}
 			else if(sel == 2) {
 				break;
 			}
 		}
-		
+		System.out.println("\n----------------------");
+		System.out.println("매출액 : " + mega.money +"원");
 		scan.close();
 		
 	}

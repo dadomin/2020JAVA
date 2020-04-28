@@ -38,6 +38,53 @@ class Theater{
 
 public class Ex04 {
 	public static void main(String[] args) {
+		run();
+	}
+	
+	public static void run() {
+		Theater t = new Theater();
+		System.out.print("영화관 이름 정하기 : ");
+		String name = t.scan.next();
+		t.name = name;
 		
+		while(true) {
+			
+			System.out.println(t.name);
+			System.out.println("[1]좌석예매");
+			System.out.println("[2]종료하기");
+			
+			System.out.print("메뉴 선택 : ");
+			int sel = t.scan.nextInt();
+			
+			if(sel == 1) {
+				System.out.print("seat = ");
+				for(int i = 0; i < t.seat.length; i++) {
+					System.out.print(t.seat[i] + " ");
+				}
+				System.out.println("");
+				System.out.print("\n좌석선택 : ");
+				int s = t.scan.nextInt();
+				if(s >= 0 && s < 7) {
+					if(t.seat[s] == 1) {
+						System.out.println("이미 선택된 좌석입니다. 좌석 예매를 다시 시도해주세요.");
+						continue;
+					}
+					t.seat[s] = 1;
+					t.money += 12000;
+					System.out.print("seat = ");
+					for(int i = 0; i < t.seat.length; i++) {
+						System.out.print(t.seat[i] + " ");
+					}
+					System.out.println("");
+				}
+			}
+			else if(sel == 2) {
+				break;
+			}
+		}
+		
+		System.out.println("\n----------------------");
+		System.out.println("매출액 : " + t.money +"원");
+		t.scan.close();
 	}
 }

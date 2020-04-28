@@ -1,5 +1,7 @@
 package step06;
 
+import java.util.Random;
+
 /*
  * # OMR카드[문제]
  * 1. 배열 answer는 시험문제의 정답지이다.
@@ -23,6 +25,28 @@ class OmarCard{
 
 public class Ex03 {
 	public static void main(String[] args) {
-
+		OmarCard oc = new OmarCard();
+		Random rnd = new Random();
+		System.out.print("answer = ");
+		for(int i = 0; i < oc.answer.length; i++) {
+			System.out.print(oc.answer[i] + " ");
+		}
+		System.out.print("\nstudent = ");
+		for(int i = 0; i < oc.student.length; i++) {
+			oc.student[i] = rnd.nextInt(5) + 1;
+			System.out.print(oc.student[i] + " ");
+		}
+		System.out.print("\n정오표 = ");
+		for(int i = 0; i < oc.answer.length; i++) {
+			if(oc.answer[i] == oc.student[i]) {
+				oc.cnt++;
+				oc.score += 20;
+				System.out.print("O ");
+			}else {
+				System.out.print("X ");
+			}
+		}
+		System.out.print("\n성적 = " + oc.score + "점");
+		
 	}
 }

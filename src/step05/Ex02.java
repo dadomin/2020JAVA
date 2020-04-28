@@ -17,15 +17,30 @@ public class Ex02 {
 	public static void main(String[] args) {
 		
 		int[] score = {10, 50, 30, 40, 80, 7};
-		int max = searchMax(score);
+		int[] tmp = score;
+		int[] c = correctA(score);
+		int cnt = 0;
 		
 		while(true) {
 			for(int i = 0; i < score.length; i++) {
 				System.out.print(score[i] + " ");
 			}
 			System.out.println("");
-			if(score[0] == max) break;
 			
+			if(compare(score, c)) break;
+
+			int max = searchMax(tmp);
+			for(int i = 0; i < score.length; i++) {
+				if(score[i] == max) {
+					score[i] = score[0 + cnt];
+					score[0 + cnt] = max;
+					cnt++;
+				}
+			}
+			tmp = new int[score.length - cnt];
+			for(int i = 0; i < tmp.length; i++) {
+				tmp[i] = score[i+cnt];
+			}
 		}
 		
 	}
@@ -42,11 +57,30 @@ public class Ex02 {
 	
 	public static int[] correctA(int[] arr) {
 		int[] c = new int[arr.length];
-		for(int i = 0; i < arr.length-1; i++) {
-			for(int j = i; j < arr.length; j++) {
-				
+		for(int i = 0; i < arr.length; i++) {
+			c[i] = arr[i];
+		}
+		for(int i = 0; i < c.length; i++) {
+			for(int j = 0; j < i; j++) {
+				if(c[j] < c[i]) {
+					int t = c[i];
+					c[i] = c[j];
+					c[j] = t;
+				}
 			}
 		}
 		return c;
 	}
+	
+	public static boolean compare(int[] a, int[] b) {
+		boolean t = true;
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] != b[i]) {
+				t = false;
+			}
+		}
+		return t;
+	}
+	
+	
 }

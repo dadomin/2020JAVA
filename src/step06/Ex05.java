@@ -32,8 +32,8 @@ class ATM{
 	
 	int count = 5;
 	
-	// 3333 로그인 중
-	int loginCheck = 2;
+	// -1 : 로그아웃 , 나머지 인덱스 : 로그인 인덱스
+	int loginCheck = -1;
 }
 
 public class Ex05 {
@@ -59,13 +59,151 @@ public class Ex05 {
 			System.out.print("메뉴 선택 : ");
 			int sel = scan.nextInt();
 			
-			if(sel == 1) {}
-			else if(sel == 2) {}
-			else if(sel == 3) {}
-			else if(sel == 4) {}
-			else if(sel == 5) {}
-			else if(sel == 6) {}
-			else if(sel == 7) {}
+			if(sel == 1) {//회원가입
+				if(mega.loginCheck != -1) {
+					System.out.println("로그아웃 후 이용가능");
+					continue;
+				}
+				System.out.print("아이디 입력 : ");
+				String id = scan.next();
+				System.out.print("비밀번호 입력 : ");
+				String pw = scan.next();
+				String[] tid = new String[mega.count + 1];
+				String[] tpw = new String[mega.count+1];
+				int[] tm = new int[mega.count +1];
+				for(int i = 0; i < mega.count; i++) {
+					tid[i] = mega.arAcc[i];
+					tpw[i] = mega.arPw[i];
+					tm[i] = mega.arMoney[i];
+				}
+				tid[mega.count] = id;
+				tpw[mega.count] = pw;
+				tm[mega.count] = 1000; 
+				mega.count++;
+				mega.arAcc = tid;
+				mega.arPw = tpw;
+				mega.arMoney = tm;
+				System.out.println(id+ "님 회원가입 성공.");
+			}
+			else if(sel == 2) { //회원탈퇴
+				if(mega.loginCheck == -1) {
+					System.out.println("로그인 후 이용가능");
+					continue;
+				}
+				System.out.println(mega.name + "님 탈퇴하시겠습니까?\n탈퇴 진행을 위한 비밀번호 입력");
+				String pw = scan.next();
+				if(mega.arPw[mega.loginCheck].equals(pw)) {
+					String[] tid = new String[mega.count - 1];
+					String[] tpw = new String[mega.count-1];
+					int[] tm = new int[mega.count -1];
+					int tc = 0;
+					mega.count--;
+					for(int i = 0; i < mega.count; i++) {
+						if(i == mega.loginCheck) {
+							tc++;
+						}
+						tid[i] = mega.arAcc[i+tc];
+						tpw[i] = mega.arPw[i+tc];
+						tm[i] = mega.arMoney[i+tc];
+					}
+					mega.arAcc = tid;
+					mega.arPw = tpw;
+					mega.arMoney = tm;
+					System.out.println("회원탈퇴 완료");
+					mega.loginCheck = -1;
+					mega.name = "Mega Bank";
+				}
+			}
+			else if(sel == 3) { //로그인
+				if(mega.loginCheck != -1) {
+					System.out.println("로그아웃 후 이용 가능");
+					continue;
+				}
+				System.out.print("아이디 입력 : ");
+				String id = scan.next();
+				int tidx = -1;
+				for(int i = 0; i < mega.arAcc.length; i++) {
+					if(mega.arAcc[i].equals(id)) {
+						tidx = i;
+					}
+				}
+				if(tidx == -1) {
+					System.out.println("해당 아이디 존재하지 않음.");
+					continue;
+				}
+				System.out.print("비밀번호 입력 : ");
+				String pw = scan.next();
+				if(mega.arPw[tidx].equals(pw)) {
+					mega.loginCheck = tidx;
+					mega.name = mega.arAcc[mega.loginCheck];
+					System.out.println(mega.name + "님 로그인 성공.");
+				}else {
+					System.out.println("로그인 실패.");
+					continue;
+				}
+			}
+			else if(sel == 4) { //로그아웃
+				if(mega.loginCheck == -1) {
+					System.out.println("로그인 후 이용 가능.");
+					continue;
+				}
+				System.out.println("로그아웃 성공 .");
+				mega.loginCheck = -1;
+				mega.name = "Mega Bank";
+			}
+			else if(sel == 5) { //입금
+				if(mega.loginCheck == -1) {
+					System.out.println("로그인 후 이용 가능.");
+					continue;
+				}
+				System.out.print("입금하실 금액 입력 : ");
+				int p = scan.nextInt();
+				if(p <= 0) {
+					System.out.println("입금 실패. 금액이 올바르지 않음.");
+					continue;
+				}
+				mega.arMoney[mega.loginCheck] += p;
+				System.out.println(mega.name+"님의 계좌로 "+p+"원 입금 성공.(현재 잔액 : "+mega.arMoney[mega.loginCheck] + "원)");
+			}
+			else if(sel == 6) { //이체
+				if(mega.loginCheck == -1) {
+					System.out.println("로그인 후 이용 가능.");
+					continue;
+				}
+				System.out.print("이체할 아이디 입력 : ");
+				String id = scan.next();
+				int find = -1;
+				for(int i = 0; i < mega.arAcc.length; i++) {
+					if(mega.arAcc[i].equals(id)) {
+						find = i;
+					}
+				}
+				if(find == -1) {
+					System.out.println("이체 실패. 해당 아이디 존재하지 않음.");
+					continue;
+				}
+				System.out.println("이체시킬 금액 입력 : ");
+				int m = scan.nextInt();
+				if(m <= 0) {
+					 System.out.println("이체 실패. 금액의 범위가 올바르지 않음.");
+					 continue;
+				}
+				if(m > mega.arMoney[mega.loginCheck]) {
+					 System.out.println("이체 실패. 잔액 부족.");
+					 continue;
+				}
+				mega.arMoney[mega.loginCheck] -= m;
+				mega.arMoney[find] += m;
+				System.out.println(mega.arAcc[find]+"님의 계좌로 "+m+"원 입금 성공.(현재 잔액 : "+mega.arMoney[mega.loginCheck] + "원)");
+			}
+			else if(sel == 7) {//잔액 조회
+				if(mega.loginCheck == -1) {
+					System.out.println("로그인 후 이용 가능.");
+					continue;
+				}
+				System.out.println("[ "+mega.name+"님의 현재 잔액 ]");
+				System.out.println(mega.arMoney[mega.loginCheck] + "원");
+			}
 			else if(sel == 0) {
 				System.out.println("프로그램 종료");
 				break;

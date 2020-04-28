@@ -24,10 +24,39 @@ class School{
 	
 	int cnt = 0;						// 정답 맞춘 개수
 	int score = 0;						// 성적
+	
+	
 }
 
 public class Ex03 {
 	public static void main(String[] args) {
-
+		School sc = new School();
+		run(sc);
+	}
+	
+	public static void run(School oc) {
+		System.out.print("answer = ");
+		for(int i = 0; i < oc.omr.length; i++) {
+			System.out.print(oc.omr[i] + " ");
+		}
+		
+		System.out.print("\nstudent = ");
+		for(int i = 0; i < oc.me.length; i++) {
+			oc.me[i] = oc.ran.nextInt(5) + 1;
+			System.out.print(oc.me[i] + " ");
+		}
+		
+		System.out.print("\n정오표 = ");
+		for(int i = 0; i < oc.omr.length; i++) {
+			if(oc.omr[i] == oc.me[i]) {
+				oc.cnt++;
+				oc.score += 20;
+				System.out.print("O ");
+			}else {
+				System.out.print("X ");
+			}
+		}
+		
+		System.out.print("\n성적 = " + oc.score + "점");
 	}
 }
