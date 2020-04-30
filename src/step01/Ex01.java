@@ -10,23 +10,29 @@ package step01;
 public class Ex01 {
 	public static void main(String[] args) {
 
-		int kor = 87;
-		int eng = 100;
-		int math = 42;
+		int kor = 87; // 국어 점수
+		int eng = 100; // 영어 점수
+		int math = 42; // 수학 점수
 		
-		boolean pass = true;
-		double avg = (double)(kor + eng + math) / 3;
+		boolean pass = true; // 합격 여부
+		double avg = (double)(kor + eng + math) / 3; // 평균 점수
+		
+		//평균이 60점 미만이면 불합격
 		if(avg < 60) {
 			pass = false;
 		}
+		
+		// 과목당 점수가 50점 미만이 하나라도 있으면 불합격
 		if(kor < 50 || eng < 50 || math < 50) {
 			pass = false;
 		}
 		
+		//합격 여부 출력
 		if(pass) {
 			System.out.println("합격");
 		}else {
 			System.out.println("불합격");
 		}
+		
 	}
 }

@@ -14,9 +14,12 @@ import java.util.Scanner;
 public class Ex02 {
 	public static void main(String[] args) {
 
-		Scanner in = new Scanner(System.in); 
+		Scanner in = new Scanner(System.in); // 스캐너
 
-		boolean use = true;
+		boolean use = true; // 놀이기구를 사용할수 있는지 없는지 판별해줌 
+		// 일단 true해놓고 안되는 조건에 해당되는 경우 false로 전환해준다.
+		
+		//키 입력받기
 		System.out.println("키를 입력하세요.");
 		double tall = in.nextDouble();
 		

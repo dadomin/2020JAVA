@@ -22,29 +22,37 @@ import java.util.Random;
 public class Ex03 {
 	public static void main(String[] args) {
 
-		Random rnd = new Random();
-		int[] st = new int[10];
+		Random rnd = new Random(); //랜덤 객체
+		int[] st = new int[10]; // 학생 10명의 성적을 담는 배열
 		
+		// 10명의 학생의 랜덤한 성적 배열에 담기
 		for(int i = 0; i < 10; i++) {
 			int r = rnd.nextInt(100) + 1;
 			st[i] = r;
 			System.out.print(r + " ");
 		}
 		
-		int total = 0;
-		int pass = 0;
-		int max = 0;
+		int total = 0; // 총점
+		int pass = 0; // 합격한 학생 수
+		int max = 0; // 1등 점수 ( 최고점 )
+		
 		for(int i = 0; i < st.length; i++) {
+			
+			// 총점 계산
 			total += st[i];
 			
+			// 합격생 수 계산 (60점 이상)
 			if(st[i] >= 60) {
 				pass++;
 			}
 			
+			// 최고점 구하기
 			if(st[i] > max) {
 				max = st[i];
 			}
 		}
+		
+		// 출력
 		System.out.println("\n[1] 총점 = " + total +"점");
 		System.out.println("[2] 평균 = " + (double)total / 10 + "점");
 		System.out.println("[3] 합격생수 = " + pass + "명");

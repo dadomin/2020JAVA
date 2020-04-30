@@ -12,17 +12,17 @@ package step01;
 public class Ex02 {
 	public static void main(String[] args) {
 
-		int x = 10;
-		int y = 20;
+		int x = 10; // x의 값
+		int y = 20; // y의 값
 		
-		int tmp = x;
+		int tmp = x; // 임시 변수
+		// 교체
 		x = y;
 		y = tmp;
 		
+		//바뀐 값 출력
 		System.out.println("x = " + x);
 		System.out.println("y = " + y);
-		
-		
 		
 	}
 }

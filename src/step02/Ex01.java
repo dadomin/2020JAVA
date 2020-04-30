@@ -15,10 +15,11 @@ import java.util.Scanner;
 public class Ex01 {
 	public static void main(String[] args) {
 
-		int dbId = 1111;
-		int dbPw = 1234;
+		int dbId = 1111; // DB 아이디
+		int dbPw = 1234; // DB 비번
 		
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in); // 스캐너 변수
+		
 		//id 입력 & 확인
 		while(true) {
 			System.out.print("ID 입력 : ");

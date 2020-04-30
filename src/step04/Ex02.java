@@ -28,7 +28,7 @@ import java.util.Scanner;
 public class Ex02 {
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in); //스캐너
 		
 		int[] seat = new int[7];
 		int price = 0;

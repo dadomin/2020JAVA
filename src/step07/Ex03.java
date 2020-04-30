@@ -35,10 +35,21 @@ public class Ex03 {
 	}
 	
 	public static void run(School oc) {
+		
+		showAnswer(oc);
+		makeAnswer(oc);
+		checkAnswer(oc);
+	}
+	
+	public static void showAnswer(School oc) {
+
 		System.out.print("answer = ");
 		for(int i = 0; i < oc.omr.length; i++) {
 			System.out.print(oc.omr[i] + " ");
 		}
+	}
+	
+	public static void makeAnswer(School oc) {
 		
 		System.out.print("\nstudent = ");
 		for(int i = 0; i < oc.me.length; i++) {
@@ -46,6 +57,10 @@ public class Ex03 {
 			System.out.print(oc.me[i] + " ");
 		}
 		
+	}
+	
+	public static void checkAnswer(School oc) {
+
 		System.out.print("\n정오표 = ");
 		for(int i = 0; i < oc.omr.length; i++) {
 			if(oc.omr[i] == oc.me[i]) {
@@ -59,4 +74,6 @@ public class Ex03 {
 		
 		System.out.print("\n성적 = " + oc.score + "점");
 	}
+	
+	
 }

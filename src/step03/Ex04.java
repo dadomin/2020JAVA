@@ -18,24 +18,32 @@ import java.util.Scanner;
 public class Ex04 {
 	public static void main(String[] args) {
 
-		Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in); // 스캐너
 		
-		boolean run = true;
+		boolean run = true; // 실행 여부
+		
 		while(run) {
 			
+			// 메뉴 출력
 			System.out.println("[1]남성의류");
 			System.out.println("[2]여성의류");
 			System.out.println("[0]종료");
 			
+			// 메뉴 선택
 			System.out.print("메뉴 선택 : ");
 			int sel = in.nextInt();
 			
 			if(sel == 1) {
+				
+				// 남성의류 탭
+				
 				System.out.println("(1)티셔츠");
 				System.out.println("(2)바지");
 				System.out.println("(3)뒤로가기");
+				
 				System.out.print("메뉴 선택 : ");
 				int s = in.nextInt();
+				
 				if(s == 1) {
 					System.out.println("남성의류 - 티셔츠 탭입니다.");
 					break;
@@ -47,13 +55,19 @@ public class Ex04 {
 				}else {
 					System.out.println("제대로 된 숫자를 입력해주세요. 첫 화면으로 돌아갑니다.");
 				}
+				
 			}
 			else if(sel == 2) {
+				
+				// 남성의류 탭
+				
 				System.out.println("(1)가디건");
 				System.out.println("(2)치마");
 				System.out.println("(3)뒤로가기");	
+				
 				System.out.print("메뉴 선택 : ");
 				int s = in.nextInt();
+				
 				if(s == 1) {
 					System.out.println("여성의류 - 가디건 탭입니다.");
 					break;
@@ -65,10 +79,15 @@ public class Ex04 {
 				}else {
 					System.out.println("제대로 된 숫자를 입력해주세요. 첫 화면으로 돌아갑니다.");
 				}
+				
 			}
 			else if(sel == 0) {
+				
+				// 종료
+				
 				run = false;
 				System.out.println("프로그램 종료");
+				
 			}
 		}
 
