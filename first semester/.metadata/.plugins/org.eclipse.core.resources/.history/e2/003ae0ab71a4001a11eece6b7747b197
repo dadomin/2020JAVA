@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP 간단한 정리</title>
+</head>
+<body>
+
+	JSP는 Java Server Page의 약자로서 <br>
+	HTML 태그에 자바로 프로그래밍하여 브라우저에 보여주는 특별한 페이지이다.
+</pre>
+HTML 파일에는 자바 코드를 작성할 수 없기 때문에
+자바코드를 넣어야 한다면 JSP 페이지로 만들어야 한다.
+
+</body>
+</html>

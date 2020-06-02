@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP 기본 태그</title>
+</head>
+<body>
+
+	<%--
+		JSP 기본태그
+		[1] 지시자(directive)
+			- 용도 : JSP 페이지의 속성을 지정함
+			- 형식 : <%@ %>
+			- 종류 : page, include, taglib
+		[2] 스크립트릿(scriptlet)
+			- 용도 : 자바 코드를 기술함
+			- 형식 : <% %>
+		[3] 선언식(declaration)
+			- 용도 : 전역변수와 메서드를 선언함
+			- 형식 : <%! %>
+		전역변수 - 영역 : 메서드영역 밖 클래스 영역 안 // 자동초기화값 있음
+		//클래스(객체)가 종료될때 메모리에서 삭제
+		지역변수 - 영역 : 메서드 영역 안 // 무조건 초기화 해줘야함
+		//지역변수는 메서드가 종료됨과 동시에 메모리에서 삭제
+		[4] 표현식(expression)
+			- 용도 : 웹브바루저에 문자열 형태로 출력함
+			- 형식 : <%= %>
+		[5] 주석(comment)
+			- 용도 : JSP 페이지에 설명을 넣음
+			- 형식 : 
+	 --%>
+	 
+	 <% // 자바의 main() 메서드 영역, service 메서드 안에서 선언됨.
+	 	Random ran = new Random();
+	 	int num = 10;
+	 
+	 %>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\user\Desktop\2020JAVA\2020JAVA\first semester\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1664288900.index
+3365460153.index
+4067971800.index
+79087471.index
+1252773035.index
+997970287.index
