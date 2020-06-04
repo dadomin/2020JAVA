@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1개의 정수합 경과 화면</title>
+</head>
+<body>
+<!-- 파라미터 작업 -> Sansu.jsp에서 넘겨받은 num1, num2, result -> type? 스트링 -->
+<!-- 파라미터 값을 가져오는 방법 ? request.getParameter("파라미터이름"); -->
+<!-- 정수로 변환 ? Interger.parseInt(스트링값) -->
+<%
+	int num1 = Integer.parseInt(request.getParameter("num1"));
+	int num2 = Integer.parseInt(request.getParameter("num2"));
+	int result = Integer.parseInt(request.getParameter("result"));
+%>
+</body>
+</html>

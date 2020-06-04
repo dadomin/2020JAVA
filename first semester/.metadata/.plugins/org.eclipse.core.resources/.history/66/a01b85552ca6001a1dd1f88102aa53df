@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1개의 정수합 경과 화면</title>
+</head>
+<body>
+<!-- 파라미터 작업 -> Sansu.jsp에서 넘겨받은 num1, num2, result -> type? 스트링 -->
+<!-- 파라미터 값을 가져오는 방법 ? request.getParameter("파라미터이름"); -->
+<!-- 정수로 변환 ? Interger.parseInt(스트링값) -->
+<%
+	int num1 = Integer.parseInt(request.getParameter("num1"));
+	int num2 = Integer.parseInt(request.getParameter("num2"));
+	int result = Integer.parseInt(request.getParameter("result"));
+	int dap = num1 + num2;
+	
+	if(dap == result){ // 정답
+%>
+		<h3>문제 : <%= num1 %> + <%= num2 %></h3><br>
+		<h3><font color="blue">당신이 입력한 값은 <%= result %> 이며, 정답입니다.</font></h3>
+<%	} else { //오답
+	%>
+		문제 : <%= num1 %> + <%= num2 %>
+		<script>
+			alert("<%= result %> 는 오답입니다. 다시 생각해보세요.");'
+		</script>	
+<%	}
+%>
+</body>
+</html>

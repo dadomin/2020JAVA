@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2개의 정수 합 구하기</title>
+</head>
+<body>
+<!-- 자바 코드로 2개의 무작위 정수를 만들어야 겠구나! -->
+<%
+Random ran = new Random();
+int num1 = ran.nextInt(10); //0~9까지 10개 무작위 정수 만들기
+int num2 = (int)(Math.random()*99); // Math.random()정리
+%>
+<h1>두수의 합을 구하시오</h1>
+<form action="SansuResult.jsp" method="get">
+	<!-- action과  method 정리 -->
+	<input type="text" name="num1" value="<%= num1 %>" readonly> +
+	<input type="text" name="num2" value="<%= num2 %>" required> <br>
+	내가 생각한 답은 <input type="text" name="result" value="" readonly> 입니다.
+	<input type="submit" value="확인">
+</form>
+</body>
+</html>
