@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SW 20201 김다민</title>
+</head>
+<body>
+	<pre>
+		세션 기본 예제
+		버튼을 하나 만들고 버튼 클릭할 때 마다
+		btn 값을 1씩 증가하다 5가 되었을 떄 메시지 출력 후 클릭 버튼 사라짐
+	</pre>
+	<%
+		int btn = 0;
+		if(session.getAttribute("btn") == null) {
+			session.setAtrribute("btn") = btn;
+		}else {
+			btn = (int) session.getAttribute("btn");
+		}
+		if(btn < 5){
+			%>
+			<button onclick="<%btn++; session.setAttribute("btn", btn); %> location.href='Ex01SessionBTN.jsp?btn=<%= btn%>">클릭</button>
+		<%
+		}
+	%>
+</body>
+</html>
